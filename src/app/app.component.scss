@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import "../../node_modules/bulma/bulma.sass";
+
+.card {
+  border-radius: 5px;
+}
+
+.card-footer {
+  border-radius: 0 0 5px 5px;
+}
+
+.is-color-green {
+  color: hsl(136,31,50);
+  border: 1px solid #7ebb8e;
+}
