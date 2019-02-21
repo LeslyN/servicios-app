@@ -9,11 +9,13 @@ import { Services } from '@angular/core/src/view';
 export class AppComponent {
   title = 'servicios-app';
 
-  servicesList = [];
+  // servicesList = [];
+
+  servicesList = JSON.parse(localStorage.getItem("serviceList"));
   name: string;
   description: string;
 
-  // editting = true;
+  editting = false;
 
   constructor() {
     // this.saveLocalStorage();
@@ -51,14 +53,17 @@ export class AppComponent {
     }
   }
 
-  searchServices() {}
+  searchServices(name) {
+    const filterServices = this.servicesList.filter(service => service.name);
+
+  }
 
 
 
 
   listService() {
+    this.editting = true;
     // Recuperar los datos del local storage
     let serviceLists = JSON.parse(localStorage.getItem("serviceList"));
-    console.log(serviceLists);
   }
 }

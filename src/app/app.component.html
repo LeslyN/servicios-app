@@ -16,8 +16,7 @@
           <a class="navbar-item" (click)="listService()">
             <h6 class="subtitle is-6">Todos</h6>
           </a>
-
-          <a class="navbar-item">
+          <a class="navbar-item" (click)="searchServices($event)">
             <h6 class="subtitle is-6">Autos</h6>
           </a>
 
@@ -56,40 +55,6 @@
     <div class="container">
       <div class="columns">
         <div class="column is-two-fifths">
-          <!-- <div class="card">
-
-            <div class="card-content">
-              <p class="title">
-                Servicio
-              </p>
-
-              <div class="content">
-                <div class="field">
-                  <label class="label">Nombre</label>
-                  <div class="control">
-                    <input class="input"  type="text" placeholder="Ingrese nombre del servicio">
-                  </div>
-                </div>
-                <div class="field">
-                  <label class="label">Descripción</label>
-                  <div class="control">
-                    <input class="input" ng-model="description" type="text" placeholder="Ingrese una descripción del servicio">
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <footer class="card-footer has-background-white-ter">
-              <div href="#" class="card-footer-item">
-                <button class="button is-color-green" type="submit" (click)="addServices()">Grabar</button>
-              </div>
-              <div href="#" class="card-footer-item">
-                <a class="button is-danger is-outlined" (click)="cancelServices()">Cancelar</a>
-              </div>
-            </footer>
-
-          </div> -->
-
           <div class="card">
 
               <div class="card-content">
