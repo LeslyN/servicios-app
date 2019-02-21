@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'servicios-app';
+
+  services = [];
+
+  addServices() {
+
+  }
+
+  editServices() {}
+
+  cancelServices() {}
+
+  deletedServices() {
+
+  }
+
+  searchServices() {}
 }
