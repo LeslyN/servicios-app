@@ -13,7 +13,7 @@
 
       <div class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item">
+          <a class="navbar-item" (click)="listService()">
             <h6 class="subtitle is-6">Todos</h6>
           </a>
 
@@ -31,63 +31,104 @@
       </div>
     </nav>
   </header>
-  <section class="section">
+  <div class="container">
     <div class="columns">
-      <div class="column is-one-quarter">
-        <div class="card">
+      <div class="column is-one-quarter"  *ngFor="let service of servicesList">
+        <div class="card" >
           <div class="card-content">
             <h4 class="title is-4">
-              Electricidad
+              {{ service.name }}
             </h4>
 
             <div class="content is-margin">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+              {{ service.description }}
             </div>
 
           </div>
           <footer class="card-footer has-background-white-ter">
             <a href="#" class="card-footer-item" (click)="editServices()">Editar</a>
-            <a href="#" class="card-footer-item" (click)="deletedServices()">Eliminar</a>
+            <a href="#" class="card-footer-item" (click)="deletedServices(service.index)">Eliminar</a>
           </footer>
         </div>
 
       </div>
     </div>
-    <div class="columns">
-      <div class="column is-two-fifths">
-        <div class="card">
-          <div class="card-content">
-            <p class="title">
-              Servicio
-            </p>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-fifths">
+          <!-- <div class="card">
 
-            <div class="content">
-              <div class="field">
-                <label class="label">Nombre</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="Ingrese nombre del servicio">
+            <div class="card-content">
+              <p class="title">
+                Servicio
+              </p>
+
+              <div class="content">
+                <div class="field">
+                  <label class="label">Nombre</label>
+                  <div class="control">
+                    <input class="input"  type="text" placeholder="Ingrese nombre del servicio">
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Descripción</label>
+                  <div class="control">
+                    <input class="input" ng-model="description" type="text" placeholder="Ingrese una descripción del servicio">
+                  </div>
                 </div>
               </div>
-              <div class="field">
-                <label class="label">Descripción</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="Ingrese una descripción del servicio">
-                </div>
+
+            </div>
+            <footer class="card-footer has-background-white-ter">
+              <div href="#" class="card-footer-item">
+                <button class="button is-color-green" type="submit" (click)="addServices()">Grabar</button>
+              </div>
+              <div href="#" class="card-footer-item">
+                <a class="button is-danger is-outlined" (click)="cancelServices()">Cancelar</a>
+              </div>
+            </footer>
+
+          </div> -->
+
+          <div class="card">
+
+              <div class="card-content">
+          <p class="title">
+            Servicio
+          </p>
+          <form (submit)="addServices()">
+              <div class="content">
+            <!-- Nombre -->
+            <div class="field">
+              <label class="label">Nombre</label>
+              <div class="control">
+                <input class="input" [(ngModel)]="name" name="name" type="text" placeholder="Ingrese nombre del servicio">
               </div>
             </div>
+            <!-- Descripcion -->
+            <div class="field">
+              <label class="label">Descripción</label>
+              <div class="control">
+                <input class="input" [(ngModel)]="description" name="description" type="text" placeholder="Ingrese una descripción del servicio">
+              </div>
+            </div>
+            </div>
+            <div class="card-footer has-background-white-ter is-fullwidth">
+                <div href="#" class="card-footer-bg">
+            <button type="submit" class="button is-color-green"> Guardar</button>
+            </div>
+            <div href="#" class="card-footer-bg">
+            <button type="button" class="button is-danger is-outlined"> Cancelar</button>
+          </div>
+        </div>
+          </form>
 
           </div>
-          <footer class="card-footer has-background-white-ter">
-            <div href="#" class="card-footer-item">
-              <a class="button is-color-green" (click)="addServices()">Grabar</a>
-            </div>
-            <div href="#" class="card-footer-item">
-              <a class="button is-danger is-outlined" (click)="cancelServices()">Cancelar</a>
-            </div>
-          </footer>
-        </div>
+          </div>
 
+        </div>
       </div>
+
     </div>
-  </section>
+  </div>
 </div>
