@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Services } from '@angular/core/src/view';
+import { ServicesP } from './servicesP';
 
 @Component({
   selector: 'app-root',
@@ -9,61 +9,34 @@ import { Services } from '@angular/core/src/view';
 export class AppComponent {
   title = 'servicios-app';
 
-  // servicesList = [];
+  listaServ = [];
+  copia = [...this.listaServ];
 
-  servicesList = JSON.parse(localStorage.getItem("serviceList"));
-  name: string;
-  description: string;
+  values = new ServicesP();
 
-  editting = false;
+  dataUpdate() {
+    this.copia.push(
+      {
+        name: this.values.name,
+        description: this.values.description,
+        category: this.values.category
+      }
+    );
 
-  constructor() {
-    // this.saveLocalStorage();
+    this.listaServ = [...this.copia];
+    console.log('Lista', this.listaServ);
   }
 
-  addServices() {
-   this.servicesList.push(
-     {
-       name: this.name,
-       description: this.description,
-       index: this.servicesList.length
-     }
-   );
+  newService(event) {
 
-    // Guardar los valores en el local storage
-    this.saveLocalStorage();
+    this.values.name = event.name;
+    this.values.description = event.description;
+    this.values.category = event.category;
+
+    this.dataUpdate();
+
+    console.log();
+    // console.log(this.listaServ);
   }
 
-  saveLocalStorage() {
-    localStorage.setItem('serviceList', JSON.stringify(this.servicesList));
-  }
-
-  editServices() {}
-
-  cancelServices() {
-
-    // Dejará los valores como estaban antes, recuperar valores del local storage
-  }
-
-  deletedServices(index) {
-    let indexServ = this.listService.length;
-    const i = this.servicesList.indexOf(this.servicesList[indexServ]);
-    if (i !== -1) {
-      this.servicesList.splice(i, 1);
-    }
-  }
-
-  searchServices(name) {
-    const filterServices = this.servicesList.filter(service => service.name);
-
-  }
-
-
-
-
-  listService() {
-    this.editting = true;
-    // Recuperar los datos del local storage
-    let serviceLists = JSON.parse(localStorage.getItem("serviceList"));
-  }
 }
