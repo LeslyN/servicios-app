@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ServicesP } from '../servicesP';
 
 @Component({
   selector: 'app-listService',
@@ -7,28 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListServiceComponent implements OnInit {
 
-  servicesList = [];
-  name: string;
-  description: string;
+  // list = [];
+
+  @Input() valuesList = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-
-
-     // Guardar los valores en el local storage
-    //  this.saveLocalStorage();
-    editServices() {}
-
-    deletedServices(index) {
-   //   let indexServ = this.listService.length;
-   //   const i = this.servicesList.indexOf(this.servicesList[indexServ]);
-   //   if (i !== -1) {
-   //     this.servicesList.splice(i, 1);
-   //   }
-   }
 }
 
 

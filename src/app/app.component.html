@@ -31,19 +31,17 @@
     </nav>
   </header>
   <div class="container">
-    <!-- <div class="is-left" *ngIf="listaServ.length > 0">
+    <div class="is-left">
 
-
-        <app-listService *ngFor="let service of listaServ"
-
-
-        ></app-listService>
-      </div> -->
+        <app-listService *ngFor="let serv of listaServ"
+          [valuesList]="listaServ"
+        >
+      </app-listService>
+      </div>
 
     <div class="is-right">
       <!-- Formulario -->
-      <app-formService
-                      (addServiceChild)="newService($event)"></app-formService>
+      <app-formService (addServiceChild)="newService($event)"></app-formService>
     </div>
   </div>
 </div>

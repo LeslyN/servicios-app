@@ -1,5 +1,5 @@
 <div class="columns">
-  <div class="column is-one-quarter" *ngFor="let service of servicesList">
+  <div class="column is-one-quarter" *ngFor="let service of valuesList">
     <div class="card">
       <div class="card-content">
         <h4 class="title is-4">
@@ -10,10 +10,14 @@
           {{ service.description }}
         </div>
 
+        <div class="content is-margin">
+          {{ service.category }}
+        </div>
+
       </div>
       <footer class="card-footer has-background-white-ter">
-        <a href="#" class="card-footer-item" (click)="editServices()">Editar</a>
-        <a href="#" class="card-footer-item" (click)="deletedServices(service.index)">Eliminar</a>
+        <a href="#" class="card-footer-item">Editar</a>
+        <a href="#" class="card-footer-item">Eliminar</a>
       </footer>
     </div>
 

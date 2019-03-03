@@ -35,8 +35,7 @@ export class AppComponent {
 
     this.dataUpdate();
 
-    console.log();
-    // console.log(this.listaServ);
+
   }
 
 }

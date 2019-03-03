@@ -30,7 +30,7 @@ export class FormServiceComponent implements OnInit {
   }
 
   saveService() {
-    console.log(this.formService.value)
+    // console.log(this.formService.value)
     this.addServiceChild.emit(this.formService.value);
   }
 
