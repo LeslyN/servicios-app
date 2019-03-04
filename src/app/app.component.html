@@ -1,31 +1,26 @@
-<div class="container is-family-sans-serif">
+<div class="wrapper container is-family-sans-serif">
   <h1 class="title has-text-centered is-1 is-capitalized">Servicios</h1>
 
   <header class="header is-family-code">
     <div class="tabs is-toggle is-fullwidth">
       <ul>
-        <li class="is-active"><a>Todos</a></li>
-        <li><a>Autos</a></li>
+        <li class="is-active"><a (click)="filterItems('Todos')">Todos</a></li>
+        <li><a (click)="filterItems('Autos')">Autos</a></li>
         <li><a (click)="filterItems('Salud')">Salud</a></li>
-        <li><a>Hogar</a></li>
+        <li><a (click)="filterItems('Hogar')">Hogar</a></li>
       </ul>
     </div>
   </header>
 
-  <!-- <div class="container"> -->
-
-  <div class="columns">
-    <div class="column is-8">
-      <app-listService [valuesList]="listaServ">
-      </app-listService>
+  <section class="box-list-form">
+    <div class="list-service">
+      <app-listService [valuesList]="listaServ"></app-listService>
     </div>
-    <div class="column is-one-fifth">
-      <div>
-        <app-formService (addServiceChild)="newService($event)"></app-formService>
-      </div>
+
+    <div class="form-service">
+      <app-formService (addServiceChild)="newService($event)"></app-formService>
     </div>
-  </div>
+  </section>
 
 
-  <!-- </div> -->
 </div>

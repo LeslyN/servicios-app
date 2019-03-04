@@ -1,9 +1,5 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  ServicesP
-} from './servicesP';
+import {  Component } from '@angular/core';
+import { ServicesP } from './servicesP';
 
 @Component({
   selector: 'app-root',
@@ -14,20 +10,20 @@ export class AppComponent {
   title = 'servicios-app';
 
   listaServ = [];
-  copia = [...this.listaServ];
+  copyList = [...this.listaServ];
 
   values = new ServicesP();
 
   filteredArray = [];
 
   dataUpdate() {
-    this.copia.push({
+    this.copyList.push({
       name: this.values.name,
       description: this.values.description,
       category: this.values.category
     });
 
-    this.listaServ = [...this.copia];
+    this.listaServ = [...this.copyList];
     // console.log('Lista', this.listaServ);
   }
 
@@ -45,10 +41,12 @@ export class AppComponent {
 
 
   filterItems(searchItem: string) {
-    let valor = this.listaServ.some((val => val.category.includes(searchItem)));
-    console.log('Valor: ', valor);
-    console.log('searchItem: ', this.listaServ);
-
+    let filteredArray = this.listaServ.filter((val => val.category.includes(searchItem)));
+    this.copyList = filteredArray;
+    this.listaServ = this.copyList;
+    console.log('SearchItem: ', searchItem);
+    console.log('filteredArray: ', filteredArray);
+    console.log('listServ: ', this.listaServ);
   }
 }
 
