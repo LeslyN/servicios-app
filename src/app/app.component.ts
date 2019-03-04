@@ -41,11 +41,11 @@ export class AppComponent {
 
 
   filterItems(searchItem: string) {
-    let filteredArray = this.listaServ.filter((val => val.category.includes(searchItem)));
-    this.copyList = filteredArray;
+    this.filteredArray = this.listaServ.filter((val => val.category.includes(searchItem)));
+    this.copyList = this.filteredArray;
     this.listaServ = this.copyList;
     console.log('SearchItem: ', searchItem);
-    console.log('filteredArray: ', filteredArray);
+    console.log('filteredArray: ', this.filteredArray);
     console.log('listServ: ', this.listaServ);
   }
 }
