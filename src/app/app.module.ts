@@ -5,12 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ListServiceComponent } from './listService/listService.component';
 import { FormServiceComponent } from './formService/formService.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
    declarations: [
       AppComponent,
       ListServiceComponent,
-      FormServiceComponent
+      FormServiceComponent,
+      SearchPipe
    ],
    imports: [
       BrowserModule,

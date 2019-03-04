@@ -13,7 +13,7 @@ export class FormServiceComponent implements OnInit {
   values = new ServicesP();
 
   // Entradas desde el padre
-  @Input() valuesChild = new ServicesP();
+  // @Input() valuesChild = new ServicesP();
 
   // Emite al padre
   @Output() addServiceChild = new EventEmitter();

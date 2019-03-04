@@ -1,45 +1,52 @@
 <div class="container">
   <div class="columns">
-    <div class="column is-two-fifths">
-      <div class="card">
-        <div class="card-content">
-          <p class="title">
-            Servicio
-          </p>
-          <form [formGroup]="formService">
-            <div class="content">
-              <!-- Nombre -->
-              <div class="field">
-                <label class="label">Nombre</label>
-                <div class="control">
-                  <input class="input" formControlName="name" type="text" placeholder="Ingrese nombre del servicio">
-                </div>
+    <div class="column is-one-fifth">
+      <div class="box is-width">
+        <p class="title has-text-centered">
+          Servicio
+        </p>
+        <form [formGroup]="formService">
+          <div class="content">
+            <!-- Nombre -->
+            <div class="field">
+              <label class="label">Nombre</label>
+              <div class="control">
+                <input class="input" formControlName="name" type="text" placeholder="Ingrese nombre del servicio">
               </div>
-              <!-- Descripcion -->
-              <div class="field">
-                <label class="label">Descripción</label>
-                <div class="control">
-                  <input class="input" formControlName="description" type="text" placeholder="Ingrese una descripción del servicio">
-                </div>
+            </div>
+            <!-- Descripcion -->
+            <div class="field">
+              <label class="label">Descripción</label>
+              <div class="control">
+                <input class="input" formControlName="description" type="text" placeholder="Ingrese una descripción del servicio">
               </div>
-              <!-- Categoria -->
-              <div class="select is-multiple">
-                  <select multiple size="8" formControlName="category">
-                    <option value="Autos">Autos</option>
-                    <option value="Salud">Salud</option>
-                    <option value="Hogar">Hogar</option>
-                  </select>
-                </div>
             </div>
-
-            <div href="#" class="">
-              <button type="submit" [disabled]="!formService.valid" class="button is-color-green" (click)="saveService()"> Guardar</button>
-              <button type="button" [disabled]="!formService.valid" class="button is-danger is-outlined"> Cancelar</button>
+            <!-- Categoria -->
+            <div class="select is-multiple">
+              <label class="label">Categoria</label>
+              <select multiple size="3" formControlName="category">
+                <option value="Autos">Autos</option>
+                <option value="Salud">Salud</option>
+                <option value="Hogar">Hogar</option>
+              </select>
             </div>
+          </div>
 
-          </form>
-
-        </div>
+          <div class="columns">
+            <div class="column">
+              <div class="control">
+                <button type="submit" [disabled]="!formService.valid" class="button is-primary is-outlined flex-item"
+                  (click)="saveService()"> Guardar</button>
+              </div>
+            </div>
+            <div class="column">
+              <div class="control">
+                <button type="button" [disabled]="!formService.valid" class="button is-danger is-outlined flex-item">
+                  Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
 
     </div>

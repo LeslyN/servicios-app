@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { ServicesP } from './servicesP';
+import {
+  Component
+} from '@angular/core';
+import {
+  ServicesP
+} from './servicesP';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +18,17 @@ export class AppComponent {
 
   values = new ServicesP();
 
+  filteredArray = [];
+
   dataUpdate() {
-    this.copia.push(
-      {
-        name: this.values.name,
-        description: this.values.description,
-        category: this.values.category
-      }
-    );
+    this.copia.push({
+      name: this.values.name,
+      description: this.values.description,
+      category: this.values.category
+    });
 
     this.listaServ = [...this.copia];
-    console.log('Lista', this.listaServ);
+    // console.log('Lista', this.listaServ);
   }
 
   newService(event) {
@@ -34,8 +38,23 @@ export class AppComponent {
     this.values.category = event.category;
 
     this.dataUpdate();
-
-
+    // console.log('Copia', this.copia);
+    // console.log('Lista despues de dataUpdate', this.listaServ);
   }
 
+
+
+  filterItems(searchItem: string) {
+    let valor = this.listaServ.some((val => val.category.includes(searchItem)));
+    console.log('Valor: ', valor);
+    console.log('searchItem: ', this.listaServ);
+
+  }
 }
+
+// this.filteredArray = this.listaServ.filter(item => {
+//   console.log('Item: ', item);
+//   return searchItem.indexOf(item.category) > - 1;
+// });
+// console.log('SearchItem: ', searchItem);
+// console.log('FilteredArray: ', this.filteredArray);
