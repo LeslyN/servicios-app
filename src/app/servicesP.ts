@@ -1,5 +1,6 @@
 export class ServicesP {
   name: string;
   description: string;
-  category: Array<string>;
+  category: string;
+  index: number;
 }

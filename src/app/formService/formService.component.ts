@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicesP } from '../servicesP';
 
@@ -32,6 +32,6 @@ export class FormServiceComponent implements OnInit {
   saveService() {
     // console.log(this.formService.value)
     this.addServiceChild.emit(this.formService.value);
+    this.formService.reset();
   }
-
 }

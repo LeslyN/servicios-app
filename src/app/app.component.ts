@@ -20,7 +20,8 @@ export class AppComponent {
     this.copyList.push({
       name: this.values.name,
       description: this.values.description,
-      category: this.values.category
+      category: this.values.category,
+      index: this.listaServ.length
     });
 
     this.listaServ = [...this.copyList];
@@ -32,21 +33,26 @@ export class AppComponent {
     this.values.name = event.name;
     this.values.description = event.description;
     this.values.category = event.category;
-
+    this.values.index = event.index;
     this.dataUpdate();
-    // console.log('Copia', this.copia);
-    // console.log('Lista despues de dataUpdate', this.listaServ);
   }
-
-
 
   filterItems(searchItem: string) {
     this.filteredArray = this.listaServ.filter((val => val.category.includes(searchItem)));
     this.copyList = this.filteredArray;
-    this.listaServ = this.copyList;
+    // this.listaServ = this.copyList;
     console.log('SearchItem: ', searchItem);
     console.log('filteredArray: ', this.filteredArray);
     console.log('listServ: ', this.listaServ);
+  }
+
+  // Guardado de datos desde la lista
+  newListService(event) {
+    this.values.name = event.name;
+    this.values.description = event.description;
+    this.values.category = event.category;
+
+    console.log('trae el evento desde appComponent', event);
   }
 }
 

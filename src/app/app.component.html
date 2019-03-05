@@ -14,7 +14,9 @@
 
   <section class="box-list-form">
     <div class="list-service">
-      <app-listService [valuesList]="listaServ"></app-listService>
+      <app-listService [valuesList]="listaServ"
+      (addServiceList)="newListService($event)"
+      ></app-listService>
     </div>
 
     <div class="form-service">
