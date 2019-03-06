@@ -1,15 +1,16 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, DoCheck } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ServicesP } from '../servicesP';
-
 
 @Component({
   selector: 'app-formService',
   templateUrl: './formService.component.html',
   styleUrls: ['./formService.component.scss']
 })
-export class FormServiceComponent implements OnInit {
+export class FormServiceComponent implements OnInit, DoCheck {
   formService: FormGroup;
+
+  serviceFormValues = {};
+  swState = false;
 
   // Entradas desde el padre
   @Input() edittingService = null;
@@ -26,11 +27,21 @@ export class FormServiceComponent implements OnInit {
       description: ['', [Validators.required]],
       category: ['', [Validators.required]]
     });
+
+  }
+
+  ngDoCheck() {
+    this.serviceFormValues = this.edittingService;
+    console.log('Service Form values: ', this.serviceFormValues);
   }
 
   saveService() {
-    // console.log(this.formService.value)
     this.addServiceChild.emit(this.formService.value);
     this.formService.reset();
+  }
+
+  editService() {
+
+    console.log('Este es edit Service: ', this.serviceFormValues);
   }
 }

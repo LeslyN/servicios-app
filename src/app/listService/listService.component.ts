@@ -23,6 +23,11 @@ export class ListServiceComponent implements OnInit {
     this.listItemEmmiter.emit(this.valuesList[index]);
   }
 
+  removeService(index) {
+
+  }
+
+
 }
 
 

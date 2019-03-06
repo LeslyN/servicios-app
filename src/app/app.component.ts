@@ -43,15 +43,14 @@ export class AppComponent {
   filterItems(searchItem: string) {
     this.filteredArray = this.listaServ.filter((val => val.category.includes(searchItem)));
     this.copyList = this.filteredArray;
-    // this.listaServ = this.copyList;
-    console.log('SearchItem: ', searchItem);
-    console.log('filteredArray: ', this.filteredArray);
-    console.log('listServ: ', this.listaServ);
+    // console.log('SearchItem: ', searchItem);
+    // console.log('filteredArray: ', this.filteredArray);
+    // console.log('listServ: ', this.listaServ);
   }
 
   updateService(event) {
     this.dataEdittingService = event;
-    console.log('Event: ', event);
+    // console.log('Event: ', event);
   }
 
 }

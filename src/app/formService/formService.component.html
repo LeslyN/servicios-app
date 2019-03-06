@@ -11,20 +11,20 @@
             <div class="field">
               <label class="label">Nombre</label>
               <div class="control">
-                <input class="input" formControlName="name" type="text" placeholder="Ingrese nombre del servicio">
+                <input class="input" formControlName="name" [(ngModel)]="serviceFormValues.name" type="text" placeholder="Ingrese nombre del servicio">
               </div>
             </div>
             <!-- Descripcion -->
             <div class="field">
               <label class="label">Descripción</label>
               <div class="control">
-                <input class="input" formControlName="description" type="text" placeholder="Ingrese una descripción del servicio">
+                <input class="input" formControlName="description" [(ngModel)]="serviceFormValues.description" type="text" placeholder="Ingrese una descripción del servicio">
               </div>
             </div>
             <!-- Categoria -->
             <div class="select is-multiple">
               <label class="label">Categoria</label>
-              <select multiple size="3" formControlName="category">
+              <select multiple size="3" formControlName="category" [(ngModel)]="serviceFormValues.category">
                 <option value="Autos">Autos</option>
                 <option value="Salud">Salud</option>
                 <option value="Hogar">Hogar</option>
@@ -37,6 +37,10 @@
               <div class="control">
                 <button type="submit" [disabled]="!formService.valid" class="button is-primary is-outlined flex-item"
                   (click)="saveService()"> Guardar</button>
+              </div>
+              <div class="control">
+                <button type="submit" [disabled]="!formService.valid" class="button is-primary is-outlined flex-item"
+                  (click)="editService()"> Editar</button>
               </div>
             </div>
             <div class="column">
