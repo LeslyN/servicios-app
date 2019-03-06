@@ -1,4 +1,4 @@
-import {  Component } from '@angular/core';
+import {  Component, Output, EventEmitter } from '@angular/core';
 import { ServicesP } from './servicesP';
 
 @Component({
@@ -15,6 +15,9 @@ export class AppComponent {
   values = new ServicesP();
 
   filteredArray = [];
+  dataEdittingService = {};
+
+  @Output() item = new EventEmitter();
 
   dataUpdate() {
     this.copyList.push({
@@ -46,14 +49,11 @@ export class AppComponent {
     console.log('listServ: ', this.listaServ);
   }
 
-  // Guardado de datos desde la lista
-  newListService(event) {
-    this.values.name = event.name;
-    this.values.description = event.description;
-    this.values.category = event.category;
-
-    console.log('trae el evento desde appComponent', event);
+  updateService(event) {
+    this.dataEdittingService = event;
+    console.log('Event: ', event);
   }
+
 }
 
 // this.filteredArray = this.listaServ.filter(item => {

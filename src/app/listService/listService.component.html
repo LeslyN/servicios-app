@@ -1,6 +1,6 @@
 <div class="columns is-multiline">
-  <div class="column" *ngFor="let service of valuesList">
-    <div class="card" *ngIf="!edit">
+  <div class="column" *ngFor="let service of valuesList; let i = index">
+    <div class="card">
       <div class="card-content">
         <h4 class="title is-4">
           {{ service.name }}
@@ -16,14 +16,14 @@
 
       </div>
       <footer class="card-footer has-background-white-ter">
-        <a href="#" class="card-footer-item" (click)="editService()">Editar</a>
+        <a href="#" class="card-footer-item" (click)="editService(i)">Editar</a>
         <a href="#" class="card-footer-item">Eliminar</a>
       </footer>
     </div>
 
-    <div *ngIf="edit" class="content">
+    <!-- <div *ngIf="edit" class="content">
       <div class="columns">
-        <div class="column is-5">
+        <div class="column">
           <div class="box">
             <p class="title has-text-centered">
               Servicio
@@ -62,6 +62,6 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

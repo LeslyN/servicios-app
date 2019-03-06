@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ServicesP } from '../servicesP';
 
@@ -10,10 +10,9 @@ import { ServicesP } from '../servicesP';
 })
 export class FormServiceComponent implements OnInit {
   formService: FormGroup;
-  values = new ServicesP();
 
   // Entradas desde el padre
-  // @Input() valuesChild = new ServicesP();
+  @Input() edittingService = null;
 
   // Emite al padre
   @Output() addServiceChild = new EventEmitter();
