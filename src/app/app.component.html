@@ -14,13 +14,12 @@
 
   <section class="box-list-form">
     <div class="list-service">
-      <app-listService [valuesList]="listaServ"
-      (listItemEmmiter)="updateService($event)"></app-listService>
+      <app-listService [valuesList]="listaServ" (listItemEmmiter)="updateService($event)"></app-listService>
     </div>
 
     <div class="form-service">
       <app-formService (addServiceChild)="newService($event)"
-      (editValuesChild)="updateDataService($event)"
+        (editValuesChild)="updateDataService($event)"
         [edittingService]="dataEdittingService"></app-formService>
     </div>
   </section>

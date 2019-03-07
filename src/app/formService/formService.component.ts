@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,11 +6,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './formService.component.html',
   styleUrls: ['./formService.component.scss']
 })
-export class FormServiceComponent implements OnInit {
+export class FormServiceComponent implements OnInit, OnChanges {
   formService: FormGroup;
-
-  // serviceFormValues = {};
-  swState = false;
 
   // Entradas desde el padre
   @Input() edittingService = null;
@@ -32,24 +29,38 @@ export class FormServiceComponent implements OnInit {
 
   }
 
-  // ngDoCheck() {
-  //   // this.serviceFormValues = this.edittingService;
-  //   // console.log('Service Form values: ', this.serviceFormValues);
-  // }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.edittingService) {
+      if (typeof changes.edittingService.previousValue === 'undefined') {
+        return;
+      }
+      if (changes.edittingService.currentValue) {
+        const newValues = changes.edittingService.currentValue;
+        console.log( newValues, this.formService );
+        this.formService = this.formBuilder.group( {
+          name: [newValues.name, [Validators.required]],
+          description: [newValues.description, [Validators.required]],
+          category: [newValues.category, [Validators.required]]
+        } );
+      }
+    }
+  }
+
+  // Cambiar el boton de guardar a actualizar
+  private isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+  }
 
   saveService() {
-    this.addServiceChild.emit(this.formService.value);
+    this.addServiceChild.emit( this.formService.value );
     this.formService.reset();
   }
 
   editService() {
-    let valuesFormService = this.formService.value;
-    let copyValuesFormService = {
-      ...valuesFormService,
+    this.editValuesChild.emit( {
+      ...this.formService.value,
       index: this.edittingService.index
-    };
-
-    this.editValuesChild.emit(copyValuesFormService);
+    });
     this.formService.reset();
   }
 }
