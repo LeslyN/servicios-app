@@ -53,6 +53,10 @@ export class AppComponent {
     // console.log('Event: ', event);
   }
 
+  updateDataService(event) {
+    this.listaServ[event.index] = this.dataEdittingService;
+  }
+
 }
 
 // this.filteredArray = this.listaServ.filter(item => {

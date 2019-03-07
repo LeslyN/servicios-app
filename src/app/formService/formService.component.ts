@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter, DoCheck } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './formService.component.html',
   styleUrls: ['./formService.component.scss']
 })
-export class FormServiceComponent implements OnInit, DoCheck {
+export class FormServiceComponent implements OnInit {
   formService: FormGroup;
 
-  serviceFormValues = {};
+  // serviceFormValues = {};
   swState = false;
 
   // Entradas desde el padre
@@ -17,6 +17,8 @@ export class FormServiceComponent implements OnInit, DoCheck {
 
   // Emite al padre
   @Output() addServiceChild = new EventEmitter();
+
+  @Output() editValuesChild = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -30,10 +32,10 @@ export class FormServiceComponent implements OnInit, DoCheck {
 
   }
 
-  ngDoCheck() {
-    this.serviceFormValues = this.edittingService;
-    console.log('Service Form values: ', this.serviceFormValues);
-  }
+  // ngDoCheck() {
+  //   // this.serviceFormValues = this.edittingService;
+  //   // console.log('Service Form values: ', this.serviceFormValues);
+  // }
 
   saveService() {
     this.addServiceChild.emit(this.formService.value);
@@ -41,7 +43,13 @@ export class FormServiceComponent implements OnInit, DoCheck {
   }
 
   editService() {
+    let valuesFormService = this.formService.value;
+    let copyValuesFormService = {
+      ...valuesFormService,
+      index: this.edittingService.index
+    };
 
-    console.log('Este es edit Service: ', this.serviceFormValues);
+    this.editValuesChild.emit(copyValuesFormService);
+    this.formService.reset();
   }
 }

@@ -20,6 +20,7 @@
 
     <div class="form-service">
       <app-formService (addServiceChild)="newService($event)"
+      (editValuesChild)="updateDataService($event)"
         [edittingService]="dataEdittingService"></app-formService>
     </div>
   </section>
