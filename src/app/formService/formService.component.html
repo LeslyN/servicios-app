@@ -36,11 +36,11 @@
             <div class="column">
               <div class="control">
                 <button type="submit" [disabled]="!formService.valid" class="button is-primary is-outlined flex-item"
-                (click)="saveService()" *ngIf="isEmpty(edittingService)"> Guardar</button>
+                (click)="saveService()" *ngIf="isEmpty(edittingService)">Guardar</button>
               </div>
               <div class="control">
                 <button type="submit" [disabled]="!formService.valid" class="button is-primary is-outlined flex-item"
-                (click)="editService()" *ngIf="!isEmpty(edittingService)"> Actualizar</button>
+                (click)="editService()" *ngIf="!isEmpty(edittingService)">Actualizar</button>
               </div>
             </div>
             <div class="column">

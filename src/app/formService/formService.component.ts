@@ -46,7 +46,7 @@ export class FormServiceComponent implements OnInit, OnChanges {
     }
   }
 
-  // Cambiar el boton de guardar a actualizar
+  // Si el objeto está vacío cambiar el boton de guardar a actualizar
   private isEmpty(obj) {
     return Object.keys(obj).length === 0;
   }
